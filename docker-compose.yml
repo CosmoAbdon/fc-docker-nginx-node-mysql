@@ -30,6 +30,7 @@ services:
 
   node:
     container_name: node
+    entrypoint: dockerize -wait tcp://db:3306 -timeout 20s docker-entrypoint.sh
     restart: always
     build:
       context: ./node
